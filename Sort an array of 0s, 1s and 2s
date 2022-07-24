@@ -1,0 +1,67 @@
+Ques: Sort 0,1,2 without using sorting algo or extra space
+N = 5
+arr[]= {0 2 1 2 0}
+Output:
+0 0 1 2 2
+
+class Solution {
+public:
+void sortColors(vector& nums) {
+
+    //we follow Dutch National Flag Algo
+    //we take three pointers  --> T(C) = o(n) & S(C) - o(1)
+        int low=0, mid=0, n=nums.size();
+    int high = n-1;
+    while(mid<=high){
+	// when ele is 0
+        if(nums[mid] == 0){
+            swap(nums[low], nums[mid]);
+            low++; 
+            mid++;
+        }
+		//when ele is 2
+        else if(nums[mid] == 2){
+            swap(nums[high], nums[mid]);
+            high--;
+        }
+		//when ele is 1
+        else mid++;
+    } 
+    
+    //2. Approach
+    //T(C) -> O(n) ; S(C) --> O(n)  -> Heap Overflow this gives
+ 
+   /* int countZero, countOne, countTwo = 0;
+    for(int i=0;i<nums.size();i++){
+        if(nums[i] == 0){
+            countZero++;
+           
+        }
+        else if(nums[i] == 1){
+            countOne++;
+
+        }
+        else if(nums[i] == 2){
+            countTwo++;          
+        }           
+    }
+   int i=0;
+    while(countZero != 0){
+        nums[i] = 0;
+        i = i+1;
+        countZero = countZero-1;
+    }
+    while(countOne != 0){
+        nums[i] = 1;
+        i = i+1;
+        countOne = countOne-1;
+    }
+    while(countTwo != 0){
+        nums[i] = 2;
+        i = i+1;
+        countTwo = countTwo-1;
+    }
+    */
+   
+}
+};
