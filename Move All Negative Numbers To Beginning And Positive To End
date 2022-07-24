@@ -1,0 +1,61 @@
+i/p -> 1 -4 -2 5 3
+o/p-> -4 -2 1 5 3
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+1. Aproach -> T(C) - O(n)
+void segregateElements(int arr[], int n)
+{
+    int i =0,j = 0;
+    for (i = 0; i < n; i++)
+    {
+        if (arr[i] < 0)//non-zero
+        {
+            if (i != j)
+            {
+                swap(&arr[i],&arr[j]);
+            }
+            j++;
+        }
+    }
+}
+
+2. solution
+// This sol exceed time limit
+int main()
+{
+    vector<int> nums = {47, 8, 11, -26, -30, 33, -5, 23 };
+    int s = 0;
+    int e = nums.size()-1;
+    while(s<=e){
+        if(nums[s] < 0 && nums[e] < 0){
+            s++;
+        }
+        else if(nums[s] > 0 && nums[e] < 0)
+        {
+            swap(nums[s],nums[e]);
+            s++;
+            e--;
+        }
+        else if(nums[s] > 0 && nums[e] > 0){
+            e--;
+        }
+        else if(nums[s]<0 && nums[e]>0) {
+            s++;
+            e--;
+        }
+    }
+    
+    for(int i=0;i<nums.size();i++){
+        cout<<nums[i]<<" ";
+    }
+    return 0;
+}
+
+3. 
+
+
+
+
