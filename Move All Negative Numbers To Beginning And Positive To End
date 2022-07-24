@@ -23,15 +23,21 @@ void segregateElements(int arr[], int n)
 }
 
 2. solution
-// This sol exceed time limit
+// This sol exceed time limit  --> In code studio
+#include <iostream>
+#include <vector>
+using namespace std;
+
 int main()
 {
     vector<int> nums = {47, 8, 11, -26, -30, 33, -5, 23 };
     int s = 0;
     int e = nums.size()-1;
     while(s<=e){
-        if(nums[s] < 0 && nums[e] < 0){
+      
+        if(nums[s]<0 && nums[e]>0) {
             s++;
+            e--;
         }
         else if(nums[s] > 0 && nums[e] < 0)
         {
@@ -39,11 +45,11 @@ int main()
             s++;
             e--;
         }
-        else if(nums[s] > 0 && nums[e] > 0){
-            e--;
-        }
-        else if(nums[s]<0 && nums[e]>0) {
+        
+         else if(nums[s] < 0 && nums[e] < 0){
             s++;
+        }
+        else{
             e--;
         }
     }
