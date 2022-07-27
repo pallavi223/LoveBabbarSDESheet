@@ -1,0 +1,57 @@
+Merge two sorted array --> with using extra space T(C) - O(m+n)
+
+
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+      
+        vector<int> mergeArray(m+n);
+        int i=0;
+        int j=0;
+        int k=0;
+        while(i<m && j<n){
+            if(nums1[i] < nums2[j]){
+                mergeArray[k++] = nums1[i++];
+            }
+            else{
+                mergeArray[k++] = nums2[j++];
+            }
+        }
+        while(i<m){
+            mergeArray[k++] = nums1[i++];
+        }
+        while(j<n){
+            mergeArray[k++] = nums2[j++];
+        }
+        nums1 = mergeArray; 
+    }
+};
+
+######################## WIthout using extra space ######################
+
+1. Second Approach --> Merge two sorted array --> Without using extra space T(C) - O(n (m logn n)) for sort + S(C): O(1)   Pass test cases -> 236 /317
+Time Limit Exceeded
+
+   //Function to merge the arrays.
+        void merge(long long arr1[], long long arr2[], int n, int m) 
+        { 
+             int i=0;
+             int j=0;
+             while(i<n && j<m){
+                 if(arr1[i] < arr2[j]){
+                     i++;
+                  
+                 }
+                 else{
+                     swap(arr1[i],arr2[j]);
+                     sort(arr2,arr2+m);
+                     i++;
+                   
+                 }
+                 
+             }
+         
+        } 
+        
+   2. Third Approach --> Best Optimise approach
+   
