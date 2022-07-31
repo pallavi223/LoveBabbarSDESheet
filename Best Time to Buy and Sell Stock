@@ -2,6 +2,10 @@ Input: prices = [7,1,5,3,6,4]
 Output: 5
 
 
+// Linearly travel the array. We can maintain a minimum from the starting of the array and compare it with every element of the array. 
+// if it is greater than the minimum then take the difference and maintain it in max,
+// otherwise update   the minimum.
+
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
