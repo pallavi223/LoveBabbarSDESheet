@@ -1,0 +1,38 @@
+Input:
+N = 4, K = 6
+arr[] = {1, 5, 7, 1}
+Output: 2
+
+class Solution{   
+public:
+    int getPairsCount(int arr[], int n, int k) {
+       // Using two pointer ->optimise 
+       int start = 0;
+       int end = n-1;
+       int count=0;
+       sort(arr,arr+n);
+       while(start <= end){
+           if(arr[start] + arr[end] > k){
+               end--;
+           }
+           else if(arr[start]+arr[end] < k){
+               start++;
+           }
+          if(arr[start]+arr[end]==k){
+               {
+                   int x = arr[start];
+                   for(int i=start+1;i<=end;i++){
+                       if(x+arr[i] == k){
+                           count++;
+                       }
+                   }
+                   start++;
+                  
+               }
+           }
+           
+       }
+       return count;
+       
+    }
+};
